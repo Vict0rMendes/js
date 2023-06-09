@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Conversor de Temperatura</title>
+	<script>
+		function converter() {
+   // Obter a temperatura digitada
+   var temp = document.getElementById("temp").value;
+ 
+   // Obter a escala selecionada
+   var escala = document.querySelector('input[name="escala"]:checked').value;
+ 
+   // Converter para Fahrenheit ou Celsius
+   if (escala === "fahrenheit") {
+     var resultado = (temp * 9/5) + 32;
+     resultado += "°F";
+   }
+   else {
+     var resultado = (temp - 32) * 5/9;
+     resultado += "°C";
+   }
+  
+   // Exibir o resultado na página
+   document.getElementById("resultado").innerHTML = resultado;
+ }
+	</script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="voltar.js"></script>
+</head>
+
+<body class="text-center bg-dark-subtle">
+	<div class="voltar"></div>
+	<h1>Conversor de Temperatura</h1>
+	<form>
+		<label for="temp">Temperatura:</label>
+		<input type="number" id="temp" name="temp"><br><br>
+		<label for="fahrenheit">Fahrenheit</label>
+		<input type="radio" id="fahrenheit" name="escala" value="fahrenheit">
+		<label for="celsius">Celsius</label>
+		<input type="radio" id="celsius" name="escala" value="celsius"><br><br>
+		<button type="button" class="btn btn-primary" onclick="converter()">Converter</button>
+	</form>
+	<p id="resultado"></p>
+</body>
+</html>

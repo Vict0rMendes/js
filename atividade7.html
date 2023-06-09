@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var valores = [];
+
+        function adicionarValor() {
+            var valor = parseInt(document.getElementById("valor").value);
+            valores.push(valor);
+            document.getElementById("valor").value = '';
+        }
+
+        function mostrarValores() {
+            var listaValores = "";
+            for (var i = 0; i < valores.length; i++) {
+                listaValores += "<li>" + valores[i] + "</li>";
+            }
+            document.getElementById("valores").innerHTML = listaValores;
+        }
+
+        function mostrarMaiorValor() {
+            if (valores.length > 0) {
+                var maiorValor = Math.max(...valores);
+                document.getElementById("resultado").innerHTML = "Maior Valor: " + maiorValor;
+            }
+        }
+
+        function mostrarMenorValor() {
+            if (valores.length > 0) {
+                var menorValor = Math.min(...valores);
+                document.getElementById("resultado").innerHTML = "Menor Valor: " + menorValor;
+            }
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="voltar.js"></script>
+</head>
+
+<body class="text-center bg-dark-subtle">
+    <div class="voltar"></div>
+    <div>
+        <h1>Mostrar valores</h1>
+        <form>
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor">
+            <button type="button" class="btn btn-primary" onclick="adicionarValor()">Adicionar Valor</button>
+        </form>
+        <div>
+            <h4>Valores Inseridos:</h4>
+            <ul id="valores"></ul>
+        </div>
+        <div>
+            <button type="button" class="btn btn-secondary" onclick="mostrarValores()">Mostrar Valores</button>
+            <button type="button" class="btn btn-success" onclick="mostrarMaiorValor()">Maior Valor</button>
+            <button type="button" class="btn btn-info" onclick="mostrarMenorValor()">Menor Valor</button>
+        </div>
+        <div id="resultado"></div>
+    </div>
+</body>
+
+</html>

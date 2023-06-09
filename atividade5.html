@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calcularCusto() {
+            const comprimento = document.getElementById("comprimento").value;
+            const largura = document.getElementById("largura").value;
+            const area = comprimento * largura;
+            const custo = area * 36;
+            var resultado = `O custo de assentar piso no cômodo é de R$ ${custo.toFixed(2)}`;
+            document.getElementById("resultado").innerHTML = resultado;
+        }
+
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="voltar.js"></script>
+</head>
+
+<body class="text-center bg-dark-subtle">
+    <div class="voltar"></div>
+    <h1>Calcular gasto para ascentar piso</h1>
+    <form>
+        <label for="comprimento">Comprimento do cômodo (em metros):</label>
+        <input type="number" id="comprimento" name="comprimento"><br>
+        <label for="largura">Largura do cômodo (em metros):</label>
+        <input type="number" id="largura" name="largura"><br><br>
+        <button type="button" class="btn btn-primary" onclick="calcularCusto()">Calcular custo</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+
+</html>
